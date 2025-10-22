@@ -3,6 +3,7 @@
 //Encapsulamiento
 
 class Publicacion {
+
     private String codigo;
     private String titulo;
     private int anioPublicacion;
@@ -15,6 +16,7 @@ class Publicacion {
 
     public String getCodigo() { return codigo; }
     public void setCodigo(String codigo) { this.codigo = codigo; }
+
 
     public String getTitulo() { return titulo; }
     public void setTitulo(String titulo) { this.titulo = titulo; }
@@ -30,12 +32,14 @@ class Publicacion {
 //Interfaz 
 
 interface Prestamo {
+
     public String tipoPrestamo();
 }
 
 // Herencia y Polimorfismo 
 
 class Libro extends Publicacion implements Prestamo {
+   
     private String autor;
 
     public Libro(String codigo, String titulo, int anioPublicacion, String autor) {
@@ -46,10 +50,13 @@ class Libro extends Publicacion implements Prestamo {
     public String getAutor() { return autor; }
     public void setAutor(String autor) { this.autor = autor; }
 
+
+
     @Override
     public String mostrarDatos() {
         return "Libro: " + getTitulo() + " – Autor: " + autor + " – Año: " + getAnioPublicacion();
     }
+
 
     @Override
     public String tipoPrestamo() {
@@ -76,6 +83,7 @@ class Revista extends Publicacion implements Prestamo {
     @Override
     public String tipoPrestamo() {
         return "Préstamo por 7 días";
+    
     }
 }
 
@@ -110,6 +118,7 @@ class Biblioteca {
 //Uso en Main
 
 class Usuario {
+
     private String nombre;
     private Publicacion[] prestamos;
 
@@ -142,7 +151,7 @@ public class Main {
         // Biblioteca
 
         Biblioteca biblio = new Biblioteca();
-        System.out.println("=== Lista Original ===");
+        System.out.println(" Lista Original ");
         for (Publicacion p : lista) {
             System.out.println(p.mostrarDatos());
         }
@@ -150,7 +159,7 @@ public class Main {
         // Ordenar por año
 
         biblio.ordenarPorAnio(lista);
-        System.out.println("\n=== Ordenadas (más recientes primero) ===");
+        System.out.println("\n Ordenadas (más recientes primero) ");
         for (Publicacion p : lista) {
             System.out.println(p.mostrarDatos());
         }
@@ -171,7 +180,7 @@ public class Main {
 
         // Mostrar uso de interfaz y polimorfismo
 
-        System.out.println("\n=== Tipo de préstamo ===");
+        System.out.println("\n Tipo de préstamo ");
         for (Publicacion p : lista) {
             if (p instanceof Prestamo) {
                 Prestamo pr = (Prestamo) p;
@@ -180,6 +189,9 @@ public class Main {
          }
      }
 }
+
+
+
 
 
 
