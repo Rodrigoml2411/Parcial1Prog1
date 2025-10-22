@@ -97,13 +97,13 @@ class PublicacionNoEncontradaException extends Exception {
 
 class Biblioteca {
 
-    // Ordena de más reciente a más antigua
+    // Ordena del más reciente a la mas antigua
 
     public void ordenarPorAnio(Publicacion[] lista) {
         java.util.Arrays.sort(lista, (a, b) -> b.getAnioPublicacion() - a.getAnioPublicacion());
     }
 
-    // Busca por título 
+    // Busca por el título 
 
     public Publicacion buscarPorTitulo(Publicacion[] lista, String titulo) throws PublicacionNoEncontradaException {
         for (Publicacion p : lista) {
@@ -135,12 +135,12 @@ class Usuario {
     }
 }
 
-//demostración completa en Main
+//demostración completa en el Main
 
 public class Main {
     public static void main(String[] args) {
        
-        // Crear publicaciones
+        // Crea publicaciones
 
         Publicacion l1 = new Libro("L001", "Java Básico", 2020, "Juan Pérez");
         Publicacion l2 = new Libro("L002", "Patrones de Diseño", 2023, "Ana Gómez");
@@ -148,7 +148,7 @@ public class Main {
 
         Publicacion[] lista = { l1, l2, r1 };
 
-        // Biblioteca
+        // La biblioteca
 
         Biblioteca biblio = new Biblioteca();
         System.out.println(" Lista Original ");
@@ -156,7 +156,7 @@ public class Main {
             System.out.println(p.mostrarDatos());
         }
 
-        // Ordenar por año
+        // Ordena por año
 
         biblio.ordenarPorAnio(lista);
         System.out.println("\n Ordenadas (más recientes primero) ");
@@ -164,7 +164,7 @@ public class Main {
             System.out.println(p.mostrarDatos());
         }
 
-        // Buscar por título
+        // Busca por elk título
 
         try {
             Publicacion buscada = biblio.buscarPorTitulo(lista, "Tech World");
@@ -173,12 +173,12 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
-        // Crear usuario con composición
+        // Crea un usuario con composición
 
         Usuario user = new Usuario("Carlos", new Publicacion[] { l2, r1 });
         user.mostrarPrestamos();
 
-        // Mostrar uso de interfaz y polimorfismo
+        // Muestra el uso de interfaz y polimorfismo
 
         System.out.println("\n Tipo de préstamo ");
         for (Publicacion p : lista) {
